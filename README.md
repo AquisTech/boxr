@@ -1,5 +1,5 @@
 # Boxr
-Boxr is a Ruby client library for the Box V2 Content API.  Box employees affectionately refer to one another as Boxers, hence the name of this gem.  
+Boxr is a Ruby client library for the Box V2 Content API.  Box employees affectionately refer to one another as Boxers, hence the name of this gem.
 
 The purpose of this gem is to provide a clear, efficient, and intentional method of interacting with the Box Content API. As with any SDK that wraps a REST API, it is important to fully understand the Box Content API at the REST endpoint level.  You are strongly encouraged to read through the Box documentation located [here](https://box-content.readme.io/).
 
@@ -112,7 +112,7 @@ puts "Shared Link: #{updated_file.shared_link.url}"
 ```
 
 ### NOTE: Using HTTP mocking libraries for testing
-When using HTTP mocking libraries for testing, you may need to set Boxr::BOX_CLIENT to a fresh instance of HTTPClient in your test setup after loading the HTTP mocking library. For example, when using WebMock with RSpec you might could add the following to your RSpec configuration:
+When using HTTP mocking libraries for testing, you may need to set Boxr::BOX_CLIENT to a fresh instance of HTTPClient in your test setup after loading the HTTP mocking library. For example, when using WebMock with RSpec you might add the following to your RSpec configuration:
 ``` ruby
 RSpec.configure do |config|
   config.before(:suite) do
@@ -182,7 +182,7 @@ file_from_path(path)
 file_from_id(file_id, fields: [])
 alias :file :file_from_id
 
-def embed_url(file, show_download: false, show_annotations: false)
+embed_url(file, show_download: false, show_annotations: false)
 alias :embed_link :embed_url
 alias :preview_url :embed_url
 alias :preview_link :embed_url
@@ -298,7 +298,7 @@ alias :user :user_from_id
 
 all_users(filter_term: nil, fields: [], offset: 0, limit: DEFAULT_LIMIT)
 
-create_user(login, name, role: nil, language: nil, is_sync_enabled: nil, job_title: nil,
+create_user(name, login: nil, role: nil, language: nil, is_sync_enabled: nil, job_title: nil,
             phone: nil, address: nil, space_amount: nil, tracking_codes: nil,
             can_see_managed_users: nil, is_external_collab_restricted: nil, status: nil, timezone: nil,
             is_exempt_from_device_limits: nil, is_exempt_from_login_verification: nil)
