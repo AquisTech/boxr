@@ -257,6 +257,7 @@ delete_comment(comment)
 folder_collaborations(folder)
 
 add_collaboration(folder, accessible_by, role, fields: [], notify: nil)
+add_collaboration(file, accessible_by, role, fields: [], notify: nil)
 
 edit_collaboration(collaboration, role: nil, status: nil)
 
