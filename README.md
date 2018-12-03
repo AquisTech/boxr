@@ -254,7 +254,8 @@ delete_comment(comment)
 ```
 #### [Collaborations](https://box-content.readme.io/reference#collaboration-object)
 ```ruby
-folder_collaborations(folder)
+collaborations(folder)
+collaborations(file)
 
 add_collaboration(folder, accessible_by, role, fields: [], notify: nil)
 add_collaboration(file, accessible_by, role, fields: [], notify: nil)

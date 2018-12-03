@@ -1,10 +1,9 @@
 module Boxr
   class Client
 
-    def folder_collaborations(folder, fields: [])
-      folder_id = ensure_id(folder)
+    def collaborations(object, fields: [])
       query = build_fields_query(fields, COLLABORATION_FIELDS_QUERY)
-      uri = "#{FOLDERS_URI}/#{folder_id}/collaborations"
+      uri = "#{('Boxr::Client::' + object.type.upcase + 'S_URI').constantize}/#{object.id}/collaborations"
 
       collaborations, response = get(uri, query: query)
       collaborations['entries']
@@ -17,7 +16,6 @@ module Boxr
       attributes = { item: { id: object.id, type: object.type.to_sym } }
       attributes[:accessible_by] = accessible_by
       attributes[:role] = validate_role(role)
-
       collaboration, response = post(COLLABORATIONS_URI, attributes, query: query)
       collaboration
     end
@@ -61,7 +59,7 @@ module Boxr
 
 
     private
-    
+
     def validate_role(role)
       case role
       when :previewer_uploader
@@ -74,7 +72,7 @@ module Boxr
 
       role = role.to_s
       raise BoxrError.new(boxr_message: "Invalid collaboration role: '#{role}'") unless VALID_COLLABORATION_ROLES.include?(role)
-      
+
       role
     end
   end
